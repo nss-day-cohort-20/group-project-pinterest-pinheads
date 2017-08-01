@@ -1,7 +1,7 @@
 "use strict";
 
 let pinHead = angular.module("PinHead", ["ngRoute"])
-.constant('FirebaseUrl', 'pinheads-1f7c1.firebaseapp.com/');
+.constant('FirebaseUrl', 'https://pinheads-1f7c1.firebaseio.com/');
 
 pinHead.config(($routeProvider)=>{
     $routeProvider
