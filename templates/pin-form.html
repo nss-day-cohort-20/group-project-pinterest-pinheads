@@ -1,17 +1,20 @@
-<h1>Create a Pin</h1>
-<div class="form-group">
-    <label>Image URL:
-        <input type="text" class="form-control" placeholder="Insert URL" ng-model="pin.imgUrl">
-    </label>
-</div>
-<div class="form-group">
-    <label>Pick a board:
-        <select ng-options="board.name for board in boards track by board.id" ng-model="pin.board_id">
-    </select>
-     </label>
-</div>
-<div class="form-group">
-    <label>Pin Title:
-        <input type="text" class="form-control" ng-model="pin.title">
-    </label>
+<div>
+    <h1>Create a Pin</h1>
+    <div class="form-group">
+        <label>Image URL:
+            <input type="text" class="form-control" placeholder="Insert URL" ng-model="pin.imgUrl">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Pick a board:
+            <select ng-options="board.name for board in boards track by board.id" ng-model="pin.board_id">
+        </select>
+         </label>
+    </div>
+    <div class="form-group">
+        <label>Pin Title:
+            <input type="text" class="form-control" ng-model="pin.title">
+        </label>
+    </div>
+    <button class="btn btn-default" ng-click="addNewPin">Pin It!</button>
 </div>
