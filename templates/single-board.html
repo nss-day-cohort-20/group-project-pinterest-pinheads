@@ -1,0 +1,21 @@
+<div class="row">
+
+  <div class="card col-4">
+    <div class="card-block">
+      <h4 class="card-title"></h4>
+      <a href="#" class="btn btn-primary">Add a pin</a>
+    </div>
+    <img class="card-img-top" src={{pin.url}} alt="Card image cap">
+  </div>
+
+  <div ng-repeat=" pin in pins">
+    <div class="card col-4">
+      <div class="card-block">
+        <h4 class="card-title">{{pin.title}}</h4>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+      <img class="card-img-top" src={{pin.url}} alt="Card image cap">
+    </div>
+  </div>
+
+</div>

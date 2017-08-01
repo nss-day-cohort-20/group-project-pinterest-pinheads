@@ -13,7 +13,7 @@ pinHead.config(($routeProvider)=>{
         templateUrl: 'templates/boards-all.html',
         controller: 'AllBoardsController'
     })
-    .when('board/:board-id', {
+    .when('board/:board_id', {
         templateUrl : 'templates/single-board.html',
         controller: 'SingleBoardController'
     })
@@ -21,11 +21,11 @@ pinHead.config(($routeProvider)=>{
         templateUrl: 'templates/pin-form.html',
         controller: 'AddPinController'
     })
-    .when('pin/view/:pin-id', {
+    .when('pin/view/:pin_id', {
         templateUrl: 'templates/single-pin.html',
         controller: 'SinglePinController'
     })
-    .when('pin/edit/:pin-id', {
+    .when('pin/edit/:pin_id', {
         templateUrl: 'templates/pin-form.html',
         contrller: 'EditPinController'
     })
