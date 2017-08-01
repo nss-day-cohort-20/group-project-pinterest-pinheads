@@ -39,6 +39,7 @@ $scope.addBoard = () => {
 	PinFactory.postNewBoard($scope.newBoard)
 	.then( (response) => {
 		goGetBoards();
+		$scope.newBoard.title = "";
 		// $window.location.href = "#!/board/all";
 	});
 };
