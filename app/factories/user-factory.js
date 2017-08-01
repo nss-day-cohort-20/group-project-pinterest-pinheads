@@ -2,7 +2,6 @@
 
 pinHead.factory('UserFactory', function($q, $http, FirebaseUrl, FBCreds) {
 
-    var provider = new firebase.auth.GoogleAuthProvider();
     // https://pinheads-1f7c1.firebaseapp.com/__/auth/handler
     var config = {
         apiKey: FBCreds.apiKey,
@@ -10,6 +9,7 @@ pinHead.factory('UserFactory', function($q, $http, FirebaseUrl, FBCreds) {
     };
 
     firebase.initializeApp(config);
+    var provider = new firebase.auth.GoogleAuthProvider();
 
     let currentUser = null;
 
@@ -31,9 +31,13 @@ pinHead.factory('UserFactory', function($q, $http, FirebaseUrl, FBCreds) {
     };
 
     let loginUser = () => {
-        console.log("auth?");
         return firebase.auth().signInWithPopup( provider);
     };
 
-return {loginUser};
+    let getUser = () => {
+        console.log("currentUser", currentUser);
+        return currentUser;
+    };
+
+return {loginUser, isAuthenticated, getUser};
 });
