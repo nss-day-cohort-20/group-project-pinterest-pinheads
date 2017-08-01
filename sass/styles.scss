@@ -1,1 +1,14 @@
+@import "../lib/node_modules/tether/dist/css/tether.min.css";
 @import "../lib/node_modules/bootstrap/scss/bootstrap.scss";
+
+$navbar-bg: #EAFFDA;
+$navbar-text: #89023E;
+
+nav {
+  background-color: $navbar-bg;
+  color: $navbar-text;
+}
+
+.isHidden {
+  display: none;
+}
