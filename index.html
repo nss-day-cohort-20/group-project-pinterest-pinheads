@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>PinHead</title>
+  <link rel="stylesheet" type="text/css" href="./css/main.css">
+</head>
+
+<body ng-app="PinHead">
+
+<div id="bodyWrapper" class="container">
+
+    <!-- NAVBAR -->
+    <nav class="nav">
+      <a class="nav-link"> <img src="" id="logo"> </a>
+      <a class="nav-link" href="#" id="boards-link">Boards</a>
+      <a class="nav-link" href="#" id="add-pin-link">Add Pin</a>
+      <!-- bootstrap note- to disable a link just add the "disabled" class as below -->
+      <!-- <a class="nav-link disabled" href="#">Boards</a> -->
+      <a class="nav-link" href="#" id="login-link">Login</a>
+      <a class="nav-link" href="#" id="logout-link">Logout</a>
+    </nav>
+
+    <div id="pageWrapper" ng-view>
+
+    </div> <!-- pageWrapper -->
+
+  </div> <!-- bodyWrapper -->
+
+  <!-- dependencies -->
+  <script type="text/javascript" src="./lib/node_modules/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="./lib/node_modules/tether/dist/js/tether.min.js"></script>
+  <script type="text/javascript" src="./lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="./lib/node_modules/angular/angular.min.js"></script>
+  <script type="text/javascript" src="./lib/node_modules/angular-route/angular-route.min.js"></script>
+  <script type="text/javascript" src="./lib/node_modules/firebase/firebase.js"></script>
+  <!-- app -->
+  <script type="text/javascript" src="./app/app.js"></script>
+  <!-- factories -->
+  <script type="text/javascript" src="./app/values/fb-creds.js"></script>
+  <script type="text/javascript" src="./app/factories/user-factory.js"></script>
+  <script type="text/javascript" src="./app/factories/pin-factory.js"></script>
+  <!-- controllers -->
+  <script type="text/javascript" src="./app/controllers/user-controller.js"></script>
+  <script type="text/javascript" src="./app/controllers/nav-controller.js"></script>
+  <script type="text/javascript" src="./app/controllers/all-boards-controller.js"></script>
+  <script type="text/javascript" src="./app/controllers/single-board-controller.js"></script>
+  <script type="text/javascript" src="./app/controllers/single-pin-controller.js"></script>
+  <script type="text/javascript" src="./app/controllers/add-pin-controller.js"></script>
+  <script type="text/javascript" src="./app/controllers/edit-pin-controller.js"></script>
+
+</body>
+
+
+</html>
