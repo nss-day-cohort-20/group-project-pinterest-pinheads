@@ -15,6 +15,8 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 		});
 	};
 
+	// let getPins = ()
+
 
 	return { getBoards };
 });
