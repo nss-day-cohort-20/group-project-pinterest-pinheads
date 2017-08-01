@@ -1,12 +1,12 @@
 'use strict';
 
 pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
-	
+
 	//this needs to be called after the user is authenticated - on login automatically, and if called again pass in curren user's uid
 	let getBoards = (user) => {
 		return $q( (resolve, reject) => {
-			//may need to put "" around the "user" variable because it needs to be a string, not a number. 
-			$http.get(`${FirebaseUrl}boards.json?orderBy="uid"&equalTo=${user}`)
+			//may need to put "" around the "user" variable because it needs to be a string, not a number.
+			$http.get(`${FirebaseUrl}boards.json?orderBy="uid"&equalTo="${user}"`)
 			.then( (boardsData) => {
 				console.log("board data", boardsData.data);
 				resolve(boardsData.data);
@@ -73,7 +73,7 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 			.catch( (err) => {
 				reject(err);
 			});
-			
+
 		});
 	};
 
