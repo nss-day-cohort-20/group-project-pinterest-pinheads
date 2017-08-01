@@ -113,13 +113,26 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 		});
 	};
 
-// //test:
-// getPins('4444');
-// getBoards('4444');
+
+	let updatePinOnFB = (pinObject, pinId) => {
+		return $q( (resolve, reject) => {
+			if (pinId) {
+				$http.put(`${FirebaseUrl}pins/${pinId}.json`)
+				.then( (data) => {
+					resolve(data);
+				})
+				.catch( (err) => {
+						reject(err);
+					});
+			} else {
+				console.log("There was a mistake trying to update this!");
+			}
+		});
+	};
 
 
 //TODO functions for patching or PUTing objects back on FB with updated info
 
-	return { getBoards, getPins, postNewPin, postNewBoard, deletePinFromFB, deleteBoardFromFB, getSinglePin };
+	return { getBoards, getPins, postNewPin, postNewBoard, deletePinFromFB, deleteBoardFromFB, getSinglePin, updatePinOnFB };
 });
 
