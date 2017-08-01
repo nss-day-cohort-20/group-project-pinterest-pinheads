@@ -18,7 +18,7 @@ pinHead.factory('UserFactory', function($q, $http, FirebaseUrl, FBCreds) {
             firebase.auth().onAuthStateChanged( (user) => {
                 if(user) {
                     currentUser = user.uid;
-                    console.log("currentUser", currentUser );
+                    // console.log("currentUser", currentUser );
                     // return currentUser;
                     resolve(true);
                 }
@@ -31,8 +31,20 @@ pinHead.factory('UserFactory', function($q, $http, FirebaseUrl, FBCreds) {
     };
 
     let loginUser = () => {
-        return firebase.auth().signInWithPopup( provider);
-    };
+        return $q( (resolve, reject) => {
+            firebase.auth().signInWithPopup( provider)
+            .then( (data) => {
+                // console.log("user.uid", user.uid);
+            currentUser = data.user.uid;
+            console.log("currentUser", currentUser);
+            resolve(data);
+          })
+          .catch( (err) => {
+            console.log("error loggin in", err.message);
+          });
+        });
+      };
+    console.log("currentUser", currentUser);
 
     let getUser = () => {
         console.log("currentUser", currentUser);
