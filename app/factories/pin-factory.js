@@ -1,6 +1,5 @@
 'use strict';
 
-
 pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 	
 	//this needs to be called after the user is authenticated - on login automatically, and if called again pass in curren user's uid
@@ -21,3 +20,4 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 
 	return { getBoards };
 });
+
