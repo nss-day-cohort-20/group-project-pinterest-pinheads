@@ -31,3 +31,4 @@ pinHead.config(($routeProvider)=>{
     })
     .otherwise('/');
 });
+
