@@ -4,6 +4,10 @@ pinHead.controller('AllBoardsController', function ($scope, $window, UserFactory
 
 	let currentUser = null;
 
+	$scope.newBoard = {
+		title: "",
+	};
+
 	UserFactory.isAuthenticated()
 	.then( (user) => {
 		currentUser = UserFactory.getUser();
@@ -15,7 +19,6 @@ pinHead.controller('AllBoardsController', function ($scope, $window, UserFactory
 function goGetBoards() {
 	PinFactory.getBoards(currentUser)
 	.then( (boards) => {
-		console.log("board data data", boards);
 		let boardsArr = [];
 		let boardData = boards;
 		Object.keys(boardData).forEach( (key) => {
@@ -29,5 +32,15 @@ function goGetBoards() {
 		console.log("error", err);
 	});
 }
+
+$scope.addBoard = () => {
+	$scope.newBoard.uid = currentUser;
+	console.log("newBoard", $scope.newBoard);
+	PinFactory.postNewBoard($scope.newBoard)
+	.then( (response) => {
+		goGetBoards();
+		// $window.location.href = "#!/board/all";
+	});
+};
 
 });
