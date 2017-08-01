@@ -1,7 +1,11 @@
 'use strict';
 
-pinHead.controller('SingleBoardController', function ($scope, $window, UserFactory, PinFactory) {
+pinHead.controller('SingleBoardController', function ($scope, $window, $routeParams, UserFactory, PinFactory) {
 
-  $scope.board = null;
+  PinFactory.getBoards(currentUser)
+  .then ( (boardData) => {
+    console.log('boardData', boardData);
+    $scope.board = boardData;
+  });
 
 });
