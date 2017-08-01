@@ -20,3 +20,4 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 
 	return { getBoards };
 });
+
