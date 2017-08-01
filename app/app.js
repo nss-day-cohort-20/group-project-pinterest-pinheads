@@ -30,5 +30,5 @@ pinHead.config(($routeProvider)=>{
         contrller: 'EditPinController'
     })
     .otherwise('/');
-
 });
+
