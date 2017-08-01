@@ -1,6 +1,6 @@
 'use strict';
 
-pinHead.controller('AllBoardsController', function ($scope, $window, UserFactory, PinFactory) {
+pinHead.controller('UserController', function ($scope, $window, UserFactory, PinFactory) {
 
 
 
