@@ -8,7 +8,9 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 			//may need to put "" around the "user" variable because it needs to be a string, not a number.
 			$http.get(`${FirebaseUrl}boards.json?orderBy="uid"&equalTo="${user}"`)
 			.then( (boardsData) => {
-				console.log("board data", boardsData.data);
+				for(let key in boardsData.data){
+					boardsData.data[key].id = key;
+				}
 				resolve(boardsData.data);
 			})
 			.catch( (err) => {
