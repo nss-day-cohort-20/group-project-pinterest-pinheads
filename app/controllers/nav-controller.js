@@ -7,31 +7,19 @@ pinHead.controller('NavController', function ($scope, $window, UserFactory, PinF
         .then( (data) => {
             console.log("data", data);
             $window.location.href = "#!/";
+            $window.location.reload(true);
             alert('successfully logged out');
         });
     };
     // console.log("ToggleLinkFactory.noBoard", ToggleLinkFactory.noBoard );
         // $scope.noBoard = ToggleLinkFactory;
 
-UserFactory.isAuthenticated()
+    UserFactory.isAuthenticated()
     .then( (user) => {
-        let currentUser = UserFactory.getUser();
-        console.log("current user???", currentUser);
-       
-        PinFactory.getBoards(currentUser)
-        .then( (boards) => {
-            if(Object.keys(boards).length === 0 && boards.constructor === Object)
-            {
-                // console.log("ToggleLinkFactory",ToggleLinkFactory );
-                $scope.noBoard = true;
-            }
-            else
-            {
-                $scope.noBoard = false;
-            }
-            console.log("noBoard???", $scope.noBoard );
-        });
-            console.log("noBoard-secondtime?", $scope.noBoard );
+        if(user)
+            $scope.isUser = true;
+        else
+            $scope.isUser = false;
     });
 
 });

@@ -6,6 +6,7 @@ pinHead.controller('UserController', function($scope, $window, UserFactory) {
         .then( (data) => {
             let currentUser = data.user.uid;
             $window.location.href = '#!/board/all';
+            $window.location.reload(true);
             console.log("currentUser", currentUser);
         });
     };
