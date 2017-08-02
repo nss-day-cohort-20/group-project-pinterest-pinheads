@@ -1,4 +1,4 @@
-'use strict'; 
+'use strict';
 
 pinHead.controller('AddPinController', function($scope, $window, UserFactory, PinFactory) {
 
@@ -21,7 +21,7 @@ pinHead.controller('AddPinController', function($scope, $window, UserFactory, Pi
 
     $scope.savePin = ()=>{
         console.log("click called");
-        if ($scope.pin.board_id != "") {
+        if ($scope.pin.board_id !== "") {
 
             PinFactory.postNewPin($scope.pin)
                 .then((data) => {
