@@ -125,13 +125,27 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 				})
 				.catch( (err) => {
 						reject(err);
-					});
+				});
 			} else {
 				console.log("There was a mistake trying to update this!");
 			}
 		});
 	};
 
+	let changeBoardTitle = (boardId, newTitle) => {
+		return $q( (resolve, reject) => {
+			if (boardId) {
+				$http.patch(`${FirebaseUrl}boards/${boardId}.json`,
+					angular.toJson({title: newTitle}))
+				.then( (data) => {
+					resolve(data);
+				})
+				.catch( (err) => {
+						reject(err);
+				});
+			}
+		});
+	};
 
 	return { getBoards, getPins, postNewPin, postNewBoard, deletePinFromFB, deleteBoardFromFB, getSinglePin, updatePinOnFB };
 });
