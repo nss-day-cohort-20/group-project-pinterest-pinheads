@@ -21,13 +21,14 @@ pinHead.config(($routeProvider)=>{
         templateUrl: 'templates/pin-form.html',
         controller: 'AddPinController'
     })
+
     .when('/pin/view/:pin_id', {
         templateUrl: 'templates/single-pin.html',
         controller: 'SinglePinController'
     })
     .when('/pin/edit/:pin_id', {
         templateUrl: 'templates/pin-form.html',
-        contrller: 'EditPinController'
+        controller: 'EditPinController'
     })
     .otherwise('/');
 });
