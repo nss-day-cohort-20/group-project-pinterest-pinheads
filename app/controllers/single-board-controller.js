@@ -4,16 +4,16 @@ pinHead.controller('SingleBoardController', function ($scope, $window, $routePar
 
   PinFactory.getPins( $routeParams.board_id )
   .then( (pinData) => {
-    console.log('pinData', pinData);
-    let pinArr = [];
-    Object.keys(pinData).forEach( (key) => {
-      pinData[key].id = key;
-      pinArr.push(pinData[key]);
-    });
-    $scope.pins = pinArr;
+	let pinsArr = [];
+	Object.keys(pinData).forEach( (key) => {
+		pinData[key].id= key;
+		pinsArr.push(pinData[key]);
+	});
+	$scope.pins = pinsArr;
   })
   .catch( (err) => {
     console.log('error?', err);
   });
+
 
 });

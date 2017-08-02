@@ -4,15 +4,17 @@
     <div class="card-block">
       <img class="card-img-top col-12" src="./images/BigPlus.png" alt="Large Plus Sign">
       <h4 class="card-title"></h4>
-      <a href="#" class="btn btn-primary">Add a pin</a>
+      <a href="#!/pin/add" class="btn btn-primary">Add a pin</a>
     </div>
   </div>
 
   <div ng-repeat="pin in pins" class="card col-4">
       <div class="card-block">
-        <img class="card-img-top col-12" src="{{pin.url}}" alt="Pinned Image">
-        <h4 class="card-title">{{pin.title}}</h4>
-        <a ng-href="#!/pin/edit/{{pin.id}}" class="btn btn-primary">Edit Pin</a>
+        <a href="#!/pin/view/{{pin.id}}">
+          <img class="card-img-top col-12" src="{{pin.url}}" alt="Pinned Image">
+          <h4 class="card-title">{{pin.title}}</h4>
+        </a>
+        <a href="#!/pin/edit/{{pin.id}}" class="btn btn-primary">Edit Pin</a>
       </div>
   </div>
 
