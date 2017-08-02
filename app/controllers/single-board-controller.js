@@ -2,15 +2,13 @@
 
 pinHead.controller('SingleBoardController', function ($scope, $window, $routeParams, UserFactory, PinFactory) {
 
-  // PinFactory.getBoards( UserFactory.getUser() )
-  // .then ( (boardData) => {
-  //   console.log('boardData', boardData);
-  //   $scope.board = boardData;
-  // });
-
-  PinFactory.getPins( UserFactory.getUser() )
+  PinFactory.getPins( $routeParams.board_id )
   .then( (pinData) => {
-    console.log('pinData', pinData);
+    // console.log('pinData', pinData);
+    $scope.pins = pinData;
+  })
+  .catch( (err) => {
+    console.log('error?', err);
   });
 
 });

@@ -19,12 +19,13 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 		});
 	};
 
-	let getPins = (user) => {
+	let getPins = (board_id) => {
 		return $q( (resolve, reject) => {
-			console.log("user?", user);
-			//we can only fetch based on one parameter (like UID), but we only really need the pins for one board at a time. Fetch all, then filter within the controller? OR, can we filter by board instead of user, since boards are attached to users?
+			console.log("board?", board_id);
+			//the board ID will be part of the URL and we have to get it using the routeParams thing
 			//this will be for SingleBoardController - single board view
-			$http.get(`${FirebaseUrl}pins.json?orderBy="uid"&equalTo="${user}"`)
+			$http.get(`${FirebaseUrl}pins.json?orderBy="board_id"&equalTo="${board_id}"`)
+				// ?orderBy="board_id"&equalTo="${board_id}"`)
 			.then( (pinsData) => {
 				console.log("pins data", pinsData.data);
 				resolve(pinsData.data);
