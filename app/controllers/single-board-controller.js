@@ -4,8 +4,6 @@ pinHead.controller('SingleBoardController', function ($scope, $window, $routePar
 
   PinFactory.getPins( $routeParams.board_id )
   .then( (pinData) => {
-    console.log('pinData', pinData);
-    //$scope.pins = pinData;
 	let pinsArr = [];
 	Object.keys(pinData).forEach( (key) => {
 		pinData[key].id= key;
