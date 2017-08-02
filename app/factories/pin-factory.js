@@ -24,7 +24,8 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 			console.log("board?", board_id);
 			//the board ID will be part of the URL and we have to get it using the routeParams thing
 			//this will be for SingleBoardController - single board view
-			$http.get(`${FirebaseUrl}pins.json?orderBy="board_id"&equalTo=${board_id}`)
+			$http.get(`${FirebaseUrl}pins.json?orderBy="board_id"&equalTo="${board_id}"`)
+				// ?orderBy="board_id"&equalTo="${board_id}"`)
 			.then( (pinsData) => {
 				console.log("pins data", pinsData.data);
 				resolve(pinsData.data);
