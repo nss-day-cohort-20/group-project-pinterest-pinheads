@@ -1,6 +1,6 @@
 'use strict';
 
-pinHead.controller('AllBoardsController', function ($scope, $window, UserFactory, PinFactory) {
+pinHead.controller('AllBoardsController', function ($scope, $window, UserFactory, PinFactory, ToggleLinkFactory) {
 
 	let currentUser = null;
 
@@ -27,6 +27,8 @@ function goGetBoards() {
 		});
 		console.log("boards Array", boardsArr);
 		$scope.boards = boardsArr;
+		console.log("ToggleLinkFactory",ToggleLinkFactory );
+		ToggleLinkFactory.noBoard = false;
 	})
 	.catch( (err) => {
 		console.log("error", err);

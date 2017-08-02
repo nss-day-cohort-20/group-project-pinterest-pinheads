@@ -1,7 +1,7 @@
   <nav class="nav" ng-controller="NavController">
     <a class="nav-link"> <img src="" id="logo"> </a>
     <a class="nav-link" ng-href="#!/board/all" id="boardLink">Boards</a>
-    <a class="nav-link" ng-href="#!/pin/add" id="addPinLink">Add Pin</a>
+    <a class="nav-link" ng-href="#!/pin/add" id="addPinLink" ng-show="!noBoard" >Add Pin</a>
     <!-- bootstrap note- to disable a link just add the "disabled" class as below -->
     <!-- <a class="nav-link disabled" ng-href="#">Boards</a> -->
     <!-- <a class="nav-link" ng-href="#" id="loginLink">Login</a> -->

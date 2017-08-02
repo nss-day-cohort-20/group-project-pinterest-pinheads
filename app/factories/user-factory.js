@@ -57,5 +57,6 @@ pinHead.factory('UserFactory', function($q, $http, FirebaseUrl, FBCreds) {
             console.log("Error logging out", err.message);
         });
     };
+
 return {loginUser, isAuthenticated, getUser, logoutUser};
 });

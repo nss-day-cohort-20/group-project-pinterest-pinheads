@@ -32,3 +32,7 @@ nav {
 .right {
 	float: right;
 }
+
+.disabled {
+    pointer-events: none;
+}
