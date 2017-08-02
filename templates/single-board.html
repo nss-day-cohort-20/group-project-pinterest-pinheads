@@ -10,9 +10,11 @@
 
   <div ng-repeat="pin in pins" class="card col-4">
       <div class="card-block">
-        <img class="card-img-top col-12" src="{{pin.url}}" alt="Pinned Image">
-        <h4 class="card-title">{{pin.title}}</h4>
-        <a href="#!/pin/view/{{pin.id}}" class="btn btn-primary">View Pin</a>
+        <a href="#!/pin/view/{{pin.id}}">
+          <img class="card-img-top col-12" src="{{pin.url}}" alt="Pinned Image">
+          <h4 class="card-title">{{pin.title}}</h4>
+        </a>
+        <a href="#!/pin/edit/{{pin.id}}" class="btn btn-primary">Edit Pin</a>
       </div>
   </div>
 
