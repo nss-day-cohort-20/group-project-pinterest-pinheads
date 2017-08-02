@@ -6,9 +6,11 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 	let getBoards = (user) => {
 		return $q( (resolve, reject) => {
 			//may need to put "" around the "user" variable because it needs to be a string, not a number.
-			$http.get(`${FirebaseUrl}boards.json?orderBy="uid"&equalTo=${user}`)
+			$http.get(`${FirebaseUrl}boards.json?orderBy="uid"&equalTo="${user}"`)
 			.then( (boardsData) => {
-				console.log("board data", boardsData.data);
+				for(let key in boardsData.data){
+					boardsData.data[key].id = key;
+				}
 				resolve(boardsData.data);
 			})
 			.catch( (err) => {
@@ -22,7 +24,7 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 			console.log("user?", user);
 			//we can only fetch based on one parameter (like UID), but we only really need the pins for one board at a time. Fetch all, then filter within the controller? OR, can we filter by board instead of user, since boards are attached to users?
 			//this will be for SingleBoardController - single board view
-			$http.get(`${FirebaseUrl}pins.json?orderBy="uid"&equalTo=${user}`)
+			$http.get(`${FirebaseUrl}pins.json?orderBy="uid"&equalTo="${user}"`)
 			.then( (pinsData) => {
 				console.log("pins data", pinsData.data);
 				resolve(pinsData.data);
@@ -111,13 +113,26 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 		});
 	};
 
-// //test:
-// getPins('4444');
-// getBoards('4444');
+
+	let updatePinOnFB = (pinObject, pinId) => {
+		return $q( (resolve, reject) => {
+			if (pinId) {
+				$http.put(`${FirebaseUrl}pins/${pinId}.json`)
+				.then( (data) => {
+					resolve(data);
+				})
+				.catch( (err) => {
+						reject(err);
+					});
+			} else {
+				console.log("There was a mistake trying to update this!");
+			}
+		});
+	};
 
 
 //TODO functions for patching or PUTing objects back on FB with updated info
 
-	return { getBoards, getPins, postNewPin, postNewBoard, deletePinFromFB, deleteBoardFromFB, getSinglePin };
+	return { getBoards, getPins, postNewPin, postNewBoard, deletePinFromFB, deleteBoardFromFB, getSinglePin, updatePinOnFB };
 });
 
