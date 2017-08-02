@@ -1,6 +1,10 @@
 <div>
-  <h3>{{board.title}}</h3>
-  <button class="btn btn-info" ng-click="updateBoard()">Edit</button>
+  <h3 ng-show="!showDiv">{{board.title}}</h3>
+  <div ng-show="showDiv">
+    <input type="text" ng-model="board.title">
+    <button ng-click="updateBoard(); showDiv = !showDiv">Submit</button>
+  </div>
+  <button class="btn btn-info" ng-click="showDiv = !showDiv">Edit</button>
   <button class="btn btn-danger" ng-click="deleteBoard()">Delete</button>
 </div>
 
