@@ -1,8 +1,16 @@
 'use strict';
 
 pinHead.controller('EditPinController', function ($scope, $window, $routeParams, UserFactory, PinFactory) {
-
+	$scope.pin=null;
 	$scope.PageTitle = "Edit Your Pin";
+
+	//get the boards before you can display!
+	PinFactory.getBoards(UserFactory.getUser())
+    .then( (data) => {
+        console.log("data", data);
+        $scope.boards = data;
+        console.log("boards", $scope.boards);
+    });
 
 	let pinId = $routeParams.pin_id;
 
@@ -15,14 +23,6 @@ pinHead.controller('EditPinController', function ($scope, $window, $routeParams,
 		console.log("same?", $scope.pin);
 	});
 
-
-	//get the boards before you can display!
-	    PinFactory.getBoards(UserFactory.getUser())
-    .then( (data) => {
-        console.log("data", data);
-        $scope.boards = data;
-        console.log("boards", $scope.boards);
-    });
 
 	$scope.savePin = () => {
 		console.log("save edited pin called", $scope.pin, pinId);
