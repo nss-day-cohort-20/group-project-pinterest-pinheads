@@ -17,6 +17,8 @@ pinHead.controller('AddPinController', function ($scope, $window, UserFactory, P
         title: ""
     };
 
+    $scope.pin.board_id=$scope.selected;
+
     $scope.savePin = ()=>{
         console.log("click called");
         PinFactory.postNewPin($scope.pin)

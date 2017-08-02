@@ -117,7 +117,8 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 	let updatePinOnFB = (pinObject, pinId) => {
 		return $q( (resolve, reject) => {
 			if (pinId) {
-				$http.put(`${FirebaseUrl}pins/${pinId}.json`)
+				$http.put(`${FirebaseUrl}pins/${pinId}.json`,
+					angular.toJson(pinObject))
 				.then( (data) => {
 					resolve(data);
 				})
