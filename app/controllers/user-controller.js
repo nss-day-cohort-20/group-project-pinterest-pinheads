@@ -5,9 +5,9 @@ pinHead.controller('UserController', function($scope, $window, UserFactory) {
         UserFactory.loginUser()
         .then( (data) => {
             let currentUser = data.user.uid;
-            console.log("user data", data);
-            console.log("currentUser", currentUser);
             $window.location.href = '#!/board/all';
+            $window.location.reload(true);
+            console.log("currentUser", currentUser);
         });
     };
 });

@@ -146,6 +146,7 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 		});
 	};
 
+//TODO functions for patching or PUTing objects back on FB with updated info
 	let updateBoardOnFB = (boardObj, boardId) => {
 		return $q( (resolve, reject) => {
 			if (boardId) {
