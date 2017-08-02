@@ -1,6 +1,8 @@
-'use strict';
+'use strict'; 
 
 pinHead.controller('AddPinController', function ($scope, $window, UserFactory, PinFactory) {
+
+    $scope.PageTitle = "Create A Pin";
 
     PinFactory.getBoards(UserFactory.getUser())
     .then((data)=>{
@@ -10,12 +12,12 @@ pinHead.controller('AddPinController', function ($scope, $window, UserFactory, P
     });
 
     $scope.pin = {
-        imgUrl: "",
+        url: "",
         board_id: "",
         title: ""
     };
 
-    $scope.addNewPin = ()=>{
+    $scope.savePin = ()=>{
         console.log("click called");
         PinFactory.postNewPin($scope.pin)
         .then((data)=>{

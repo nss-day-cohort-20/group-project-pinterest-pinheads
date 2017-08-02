@@ -16,7 +16,7 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 			.catch( (err) => {
 				reject(err);
 			});
-		});
+		}); 
 	};
 
 	let getPins = (board_id) => {
