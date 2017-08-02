@@ -27,7 +27,7 @@ pinHead.config(($routeProvider)=>{
     })
     .when('/pin/edit/:pin_id', {
         templateUrl: 'templates/pin-form.html',
-        contrller: 'EditPinController'
+        controller: 'EditPinController'
     })
     .otherwise('/');
 });

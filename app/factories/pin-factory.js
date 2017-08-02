@@ -16,7 +16,7 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 			.catch( (err) => {
 				reject(err);
 			});
-		});
+		}); 
 	};
 
 	let getPins = (board_id) => {
@@ -117,7 +117,8 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 	let updatePinOnFB = (pinObject, pinId) => {
 		return $q( (resolve, reject) => {
 			if (pinId) {
-				$http.put(`${FirebaseUrl}pins/${pinId}.json`)
+				$http.put(`${FirebaseUrl}pins/${pinId}.json`,
+					angular.toJson(pinObject))
 				.then( (data) => {
 					resolve(data);
 				})
@@ -130,8 +131,6 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 		});
 	};
 
-
-//TODO functions for patching or PUTing objects back on FB with updated info
 
 	return { getBoards, getPins, postNewPin, postNewBoard, deletePinFromFB, deleteBoardFromFB, getSinglePin, updatePinOnFB };
 });

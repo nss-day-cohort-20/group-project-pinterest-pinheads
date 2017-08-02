@@ -18,7 +18,7 @@ pinHead.controller('SinglePinController', function ($scope, $window, $routeParam
 	};
 
 	$scope.editPin = () => {
-		$window.location.href=`#!/pin/edit/:${pinId}`;
+		$window.location.href=`#!/pin/edit/${pinId}`;
 	};
 
 
