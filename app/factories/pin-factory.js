@@ -139,7 +139,7 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 				})
 				.catch( (err) => {
 						reject(err);
-					});
+				});
 			} else {
 				console.log("There was a mistake trying to update this!");
 			}
@@ -161,9 +161,7 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 				console.log("There was a mistake trying to update this!");
 			}
 		});
-
 	};
-
 
 	return { getBoards, getPins, postNewPin, postNewBoard, deletePinFromFB, deleteBoardFromFB, getSinglePin, updatePinOnFB, getSingleBoard, updateBoardOnFB };
 });
