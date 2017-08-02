@@ -16,7 +16,21 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 			.catch( (err) => {
 				reject(err);
 			});
-		}); 
+		});
+	};
+
+	let getSingleBoard = (boardId) => {
+		return $q( (resolve, reject) => {
+			$http.get(`${FirebaseUrl}boards/${boardId}.json`)
+			.then( (board) => {
+				console.log("board", board.data);
+				board.data.id = boardId;
+				resolve(board.data);
+			})
+			.catch( (err) => {
+				reject(err);
+			});
+		});
 	};
 
 	let getPins = (board_id) => {
@@ -132,21 +146,23 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 		});
 	};
 
-	let changeBoardTitle = (boardId, newTitle) => {
+	let updateBoardOnFB = (boardObj, boardId) => {
 		return $q( (resolve, reject) => {
 			if (boardId) {
-				$http.patch(`${FirebaseUrl}boards/${boardId}.json`,
-					angular.toJson({title: newTitle}))
+				$http.put(`${FirebaseUrl}boards/${boardId}.json`,
+					angular.toJson(boardObj))
 				.then( (data) => {
 					resolve(data);
 				})
 				.catch( (err) => {
 						reject(err);
-				});
+					});
+			} else {
+				console.log("There was a mistake trying to update this!");
 			}
 		});
 	};
 
-	return { getBoards, getPins, postNewPin, postNewBoard, deletePinFromFB, deleteBoardFromFB, getSinglePin, updatePinOnFB };
+	return { getBoards, getPins, postNewPin, postNewBoard, deletePinFromFB, deleteBoardFromFB, getSinglePin, updatePinOnFB, getSingleBoard, updateBoardOnFB };
 });
 
