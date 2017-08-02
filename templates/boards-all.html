@@ -1,19 +1,19 @@
 <div class="row">
 
 	<!-- add new board link -->
-	<div class="col-sm-4" ng-show="!showDiv">
-		<div class="card board-card" style="width: 15rem; height: 200px;">
+	<div class="col-4" ng-show="!showDiv" ng-click="showDiv = !showDiv">
+		<div class="card board-card">
 	  	<img class="card-img-top add-image" src="../app/image/plus.png" width="97">
 	  	<div class="card-block">
-	    	<h4 class="card-title" ng-click="showDiv = !showDiv">Add Board</h4>
+	    	<h4 class="card-title">Add Board</h4>
 	  	</div>
 		</div> <!--card-->
 	</div> <!--col-4-->
 
 
 	<!-- add new board form -->
-	<div class="col-sm-4">
-		<div class="card board-card" style="width: 15rem; height: 200px;" ng-show="showDiv">
+	<div class="col-4" ng-show="showDiv">
+		<div class="card board-card">
 		  	<div class="card-block">
 	    		<input type="text" class="card-title" ng-model="newBoard.title">
 	    		<button ng-click="addBoard(); showDiv = !showDiv">Add Card</button>
@@ -22,9 +22,8 @@
 	</div> <!--col-4-->
 
 	<!-- board display/links to single boards -->
-	<div ng-repeat="board in boards">
-		<div class="col-sm-4">
-			<div class="card board-card" style="width: 15rem; height: 200px;">
+		<div class="col-4" ng-repeat="board in boards">
+			<div class="card board-card">
 				<a href="#!/board/{{board.id}}">
 		  		<div class="card-block">
 		    		<h4 class="card-title">{{board.title}}</h4>
@@ -32,6 +31,5 @@
 		  	</a>
 			</div> <!--card-->
 		</div> <!--col-4-->
-	</div> <!--ng-repeat-->
 
 </div>
