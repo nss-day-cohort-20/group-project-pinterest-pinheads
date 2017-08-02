@@ -132,8 +132,6 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 	};
 
 
-//TODO functions for patching or PUTing objects back on FB with updated info
-
 	return { getBoards, getPins, postNewPin, postNewBoard, deletePinFromFB, deleteBoardFromFB, getSinglePin, updatePinOnFB };
 });
 
