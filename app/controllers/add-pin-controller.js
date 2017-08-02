@@ -10,7 +10,7 @@ pinHead.controller('AddPinController', function($scope, $window, UserFactory, Pi
         });
 
     $scope.pin = {
-        imgUrl: "",
+        url: "",
         board_id: "",
         title: ""
     };
