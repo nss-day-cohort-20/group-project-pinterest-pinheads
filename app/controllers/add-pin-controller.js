@@ -1,23 +1,24 @@
 'use strict';
 
-pinHead.controller('AddPinController', function($scope, $window, UserFactory, PinFactory) {
+pinHead.controller('AddPinController', function($scope, $window, $routeParams, UserFactory, PinFactory) {
 
-    $scope.PageTitle = "Create A Pin";
+    $scope.PageTitle =  "Create A Pin";
+    let defaultBoard = $routeParams.board_id;
 
     PinFactory.getBoards(UserFactory.getUser())
         .then((data) => {
             console.log("data", data);
             $scope.boards = data;
             console.log("boards", $scope.boards);
+            console.log("board Id?", defaultBoard);
         });
+
 
     $scope.pin = {
         url: "",
-        board_id: "",
+        board_id: defaultBoard,
         title: ""
     };
-
-    $scope.pin.board_id=$scope.selected;
 
     $scope.savePin = ()=>{
         console.log("click called");
