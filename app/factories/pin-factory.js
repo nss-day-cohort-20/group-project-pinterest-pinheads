@@ -80,6 +80,7 @@ pinHead.factory("PinFactory", function($q, $http, FirebaseUrl) {
 			$http.post(`${FirebaseUrl}boards.json`,
 				angular.toJson(boardObj))
 			.then( (response) => {
+				console.log('response', response);
 				resolve(response);
 			})
 			.catch( (err) => {
