@@ -2,8 +2,8 @@
 
 pinHead.controller('SingleBoardController', function ($scope, $window, $routeParams, UserFactory, PinFactory) {
 
-  PinFactory.getPins( $routeParams.board_id )
-  .then( (pinData) => {
+  PinFactory.getPins($routeParams.board_id )
+  .then( (pinData)  => {
 	let pinsArr = [];
 	Object.keys(pinData).forEach( (key) => {
 		pinData[key].id= key;
@@ -42,6 +42,10 @@ pinHead.controller('SingleBoardController', function ($scope, $window, $routePar
         $window.location.reload(true);
       });
     }
+  };
+
+  $scope.addToSpecificBoard = () => {
+      $window.location.href=`#!/pin/add/${$routeParams.board_id}`;
   };
 
 });

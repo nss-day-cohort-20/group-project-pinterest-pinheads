@@ -1,7 +1,7 @@
 
 <div ng-include="'templates/navbar.html'"></div>
 
-<div class="row justify-content-around">
+<div class="row justify-content-around" >
   <h2 class="col-6 capitalize title" ng-show="!showDiv">{{board.title}}</h2>
   <div ng-show="showDiv">
     <input type="text" ng-model="board.title">
@@ -17,11 +17,15 @@
 
 <div class="card-columns">
 
-  <div class="card card-block col-12 h-100">
-    <a href="#!/pin/add" class="btn btn-primary">
-      <img class="col-12" src="./images/BigPlus.png" alt="Large Plus Sign">
-      <h4 class="card-title">Add a Pin</h4>
-    </a>
+
+  <div class="col-4">
+    <div class="card card-block col-12 h-90" ng-click="addToSpecificBoard()">
+      <button class="btn btn-primary">
+        <img class="col-12" src="./images/BigPlus.png" alt="Large Plus Sign">
+        <h4 class="card-title">Add a Pin</h4>
+      </button>
+    </div>
+
   </div>
 
   <div ng-repeat="pin in pins" class="card card-block col-12 h-100">
