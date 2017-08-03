@@ -29,7 +29,12 @@ function goGetBoards() {
 		boardsArr.forEach((board)=>{
 			PinFactory.getPins(board.id)
 			.then((values)=>{
-				board.pins = values;
+				let usablePins = [];
+				for(let pin in values) {
+					usablePins.push(values[pin]);
+				}
+				// console.log("values????", values);
+				board.pins = usablePins;
 			});
 	});
 		$scope.boards = boardsArr;

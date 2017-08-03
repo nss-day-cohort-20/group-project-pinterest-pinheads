@@ -3,7 +3,7 @@
     <a href="#!/board/{{board.id}}">
         <div class="card-block">
             <div class="card-columns">
-                    <div class="card" ng-repeat="pin in board.pins">
+                    <div class="card" ng-repeat="pin in board.pins | limitTo : 9">
                         <img src={{pin.url}} class="card-img img-fluid" alt="Card image">
                     </div>
                 
