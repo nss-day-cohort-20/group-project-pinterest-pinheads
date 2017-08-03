@@ -32,9 +32,9 @@
           <img class="col-12" src="{{pin.url}}" alt="Pinned Image">
           <h4 class="card-title">{{pin.title}}</h4>
         </a>
-        <div class="row">
-          <a ng-href="#!/pin/edit/{{pin.id}}" class="col-6 btn btn-primary">Edit</a>
-          <button class="btn btn-danger col-6" ng-click="deletePin(pin.id)">Delete</button>
+        <div class="row justify-content-around">
+            <a ng-href="#!/pin/edit/{{pin.id}}" class="col-5 btn btn-primary">Edit</a>
+            <button class="btn btn-danger col-5" ng-click="deletePin(pin.id)">Delete</button>
         </div>
       </div>
   </div>
