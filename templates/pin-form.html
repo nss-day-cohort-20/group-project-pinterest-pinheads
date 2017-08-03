@@ -1,20 +1,19 @@
-<div>
+<div ng-include="'templates/navbar.html'"></div>
+<div class="row justify-content-center">
+<form class="col-8 card">
     <h1>{{PageTitle}}</h1>
     <div class="form-group">
-        <label>Image URL:
-            <input type="text" class="form-control" placeholder="Insert URL" ng-model="pin.url">
-        </label>
+        <label for="urlInput">Image URL:</label>
+        <input type="text" id="urlInput" class="form-control" placeholder="Insert URL" ng-model="pin.url">
     </div>
     <div class="form-group">
-        <label>Pick a board:
-            <select ng-options="board.id as board.title for board in boards" ng-model="pin.board_id">
-        </select>
-     </label>
+        <label for="boardSelect">Pick a board:</label>
+        <select id="boardSelect" ng-options="board.id as board.title for board in boards" ng-model="pin.board_id"></select>
     </div>
     <div class="form-group">
-        <label>Pin Title:
-            <input type="text" class="form-control" ng-model="pin.title">
-        </label>
+        <label for="titleInput">Pin Title:</label>
+        <input type="text" id="titleInput" class="form-control" ng-model="pin.title">
     </div>
-    <button class="btn btn-default" ng-click="savePin()">Pin It!</button>
+    <button class="btn btn-primary" ng-click="savePin()">Pin It!</button>
+</form>
 </div>

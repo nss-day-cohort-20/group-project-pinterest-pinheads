@@ -12,9 +12,15 @@ pinHead.controller('SinglePinController', function ($scope, $window, $routeParam
 	});
 
 	$scope.delete = () => {
-		PinFactory.deletePinFromFB(pinId);
-		//go back to single board view
-		$window.location.href=`#!/board/${boardId}`;
+		if ($window.confirm("Are you sure you want to delete?")) {
+			PinFactory.deletePinFromFB(pinId)
+			.then( (response) => {
+				//go back to single board view
+				$window.location.href=`#!/board/${boardId}`;
+				$window.location.reload(true);
+				
+			});
+		}
 	};
 
 	$scope.editPin = () => {

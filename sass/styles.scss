@@ -1,12 +1,33 @@
 @import "../lib/node_modules/tether/dist/css/tether.min.css";
 @import "../lib/node_modules/bootstrap/scss/bootstrap.scss";
 
-$navbar-bg: #EAFFDA;
-$navbar-text: #89023E;
+$blackish: #433A3F;
+$whiteish: #ECE8EF;
+$darkaccent: #878AB3;
+$brightaccent: #F16481;
+$highlight: #FFD788;
+// $navbar-bg: #EAFFDA;
+// $navbar-text: #89023E;
+
+body {
+  background-color: $highlight;
+}
+
+#pageWrapper {
+  background-color: $darkaccent;
+  height: 100vh;
+  overflow: scroll;
+}
 
 nav {
-  background-color: $navbar-bg;
-  color: $navbar-text;
+  background-color: $brightaccent;
+  a {
+  color: $blackish;
+  }
+}
+
+.card {
+  background-color: $whiteish;
 }
 
 .isHidden {
@@ -29,8 +50,8 @@ nav {
 	background-size: cover;
 }
 
-.right {
-	float: right;
+.btn-primary {
+  background-color: $brightaccent;
 }
 
 .disabled {
