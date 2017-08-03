@@ -15,19 +15,19 @@
   </div>
 </div>
 
-<div class="row">
+<div class="card-columns">
 
-  <div class="col-4">
+  <!-- <div class="col-4"> -->
     <div class="card card-block col-12 h-100">
       <a href="#!/pin/add" class="btn btn-primary">
         <img class="col-12" src="./images/BigPlus.png" alt="Large Plus Sign">
         <h4 class="card-title">Add a Pin</h4>
       </a>
     </div>
-  </div>
+  <!-- </div> -->
 
-  <div ng-repeat="pin in pins" class="col-4">
-      <div class="card card-block col-12 h-100">
+  <!-- <div  class="col-4"> -->
+      <div ng-repeat="pin in pins" class="card card-block col-12 h-100">
         <a href="#!/pin/view/{{pin.id}}">
           <img class="col-12" src="{{pin.url}}" alt="Pinned Image">
           <h4 class="card-title">{{pin.title}}</h4>
@@ -37,6 +37,6 @@
             <button class="btn btn-danger col-5" ng-click="deletePin(pin.id)">Delete</button>
         </div>
       </div>
-  </div>
+  <!-- </div> -->
 
 </div>
