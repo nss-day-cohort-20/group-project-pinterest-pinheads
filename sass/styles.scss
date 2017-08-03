@@ -28,6 +28,7 @@ nav {
 
 .card {
   background-color: $whiteish;
+  margin: 20px 0;
 }
 
 .isHidden {
@@ -48,6 +49,7 @@ nav {
 	height: 90vh;
 	background-repeat: no-repeat;
 	background-size: cover;
+  margin: 25px 0;
 }
 
 .btn-primary {
@@ -60,4 +62,12 @@ nav {
 
 .capitalize {
   text-transform: capitalize;
+}
+
+.title {
+  margin: 20px 0;
+}
+
+.margin-btn {
+  margin: 20px 0;
 }
