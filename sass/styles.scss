@@ -10,11 +10,13 @@ $highlight: #FFD788;
 // $navbar-text: #89023E;
 
 body {
-  background-color: $darkaccent;
+  background-color: $highlight;
 }
 
 #pageWrapper {
-  background-color: $whiteish;
+  background-color: $darkaccent;
+  height: 100vh;
+  overflow: scroll;
 }
 
 nav {
@@ -24,8 +26,8 @@ nav {
   }
 }
 
-#pageWrapper {
-  height: 100vh;
+.card {
+  background-color: $whiteish;
 }
 
 .isHidden {
@@ -48,15 +50,9 @@ nav {
 	background-size: cover;
 }
 
-// .right {
-// 	float: right;
-// }
-
-// .board-card {
-//   width: 18rem;
-//   height: 150px;
-//   margin: 20px 10px;
-// }
+.btn-primary {
+  background-color: $brightaccent;
+}
 
 .disabled {
   pointer-events: none;

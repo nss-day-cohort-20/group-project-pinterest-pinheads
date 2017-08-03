@@ -1,8 +1,10 @@
 <div ng-include="'templates/navbar.html'"></div>
-<div>
-	<h1>{{singlePin.title}}</h1>
-</div>
-<div class="single-pin-view" style='background-image: url({{singlePin.url}});'>
-	<button class="btn delete-btn right" ng-click="delete()">X</button>
-	<button class="btn edit-btn" ng-click="editPin()">Edit</button>
+<div class="col-12">
+  <div class="row">
+  	<h1 class="col-12">{{singlePin.title}}</h1>
+    <div class="single-pin-view col-12" style='background-image: url({{singlePin.url}});'>
+    	<button class="btn btn-danger delete-btn right" ng-click="delete()">X</button>
+    	<button class="btn btn-primary edit-btn" ng-click="editPin()">Edit</button>
+    </div>
+  </div>
 </div>

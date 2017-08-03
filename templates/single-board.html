@@ -1,30 +1,34 @@
 
 <div ng-include="'templates/navbar.html'"></div>
 
-<div>
-  <h3 ng-show="!showDiv">{{board.title}}</h3>
+<div class="row justify-content-around">
+  <h3 class="col-6" ng-show="!showDiv">{{board.title}}</h3>
   <div ng-show="showDiv">
     <input type="text" ng-model="board.title">
-    <button ng-click="updateBoard(); showDiv = !showDiv">Submit</button>
+    <button class="btn btn-info" ng-click="updateBoard(); showDiv = !showDiv">Submit</button>
   </div>
-  <button class="btn btn-info" ng-click="showDiv = !showDiv">Edit</button>
-  <button class="btn btn-danger" ng-click="deleteBoard()">Delete</button>
+  <div class="col">
+    <button class="col-10 btn btn-primary" ng-click="showDiv = !showDiv">Edit Board Name</button>
+  </div>
+  <div class="col">
+    <button class="col-10 btn btn-danger" ng-click="deleteBoard()">Delete Board</button>
+  </div>
 </div>
 
 <div class="row">
 
-  <div class="card col-4">
-    <div class="card-block">
-      <img class="card-img-top col-12" src="./images/BigPlus.png" alt="Large Plus Sign">
+  <div class="col-4">
+    <div class="card card-block col-12">
+      <img class="col-12" src="./images/BigPlus.png" alt="Large Plus Sign">
       <h4 class="card-title"></h4>
       <a href="#!/pin/add" class="btn btn-primary">Add a pin</a>
     </div>
   </div>
 
-  <div ng-repeat="pin in pins" class="card col-4">
-      <div class="card-block">
+  <div ng-repeat="pin in pins" class="col-4">
+      <div class="card card-block col-12 h-100">
         <a href="#!/pin/view/{{pin.id}}">
-          <img class="card-img-top col-12" src="{{pin.url}}" alt="Pinned Image">
+          <img class="col-12" src="{{pin.url}}" alt="Pinned Image">
           <h4 class="card-title">{{pin.title}}</h4>
         </a>
         <a href="#!/pin/edit/{{pin.id}}" class="btn btn-primary">Edit Pin</a>
