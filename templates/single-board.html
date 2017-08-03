@@ -18,15 +18,12 @@
 <div class="card-columns">
 
 
-  <div class="col-4">
     <div class="card card-block col-12 h-90" ng-click="addToSpecificBoard()">
-      <button class="btn btn-primary">
+      <div class="btn btn-primary">
         <img class="col-12" src="./images/BigPlus.png" alt="Large Plus Sign">
         <h4 class="card-title">Add a Pin</h4>
-      </button>
+      </div>
     </div>
-
-  </div>
 
   <div ng-repeat="pin in pins" class="card card-block col-12 h-100">
     <a href="#!/pin/view/{{pin.id}}">
