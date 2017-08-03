@@ -2,7 +2,7 @@
 <div ng-include="'templates/navbar.html'"></div>
 
 <div class="row justify-content-around">
-  <h3 class="col-6" ng-show="!showDiv">{{board.title}}</h3>
+  <h3 class="col-6 capitalize" ng-show="!showDiv">{{board.title}}</h3>
   <div ng-show="showDiv">
     <input type="text" ng-model="board.title">
     <button class="btn btn-info" ng-click="updateBoard(); showDiv = !showDiv">Submit</button>
@@ -30,7 +30,7 @@
       <div class="card card-block col-12 h-100">
         <a href="#!/pin/view/{{pin.id}}">
           <img class="col-12" src="{{pin.url}}" alt="Pinned Image">
-          <h4 class="card-title">{{pin.title}}</h4>
+          <h4 class="card-title capitalize">{{pin.title}}</h4>
         </a>
         <div class="row justify-content-around">
             <a ng-href="#!/pin/edit/{{pin.id}}" class="col-5 btn btn-primary">Edit</a>
