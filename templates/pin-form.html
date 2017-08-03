@@ -1,9 +1,14 @@
+<div ng-include="'templates/navbar.html'"></div>
+
 <div class="row justify-content-center">
 <form class="col-8 card">
 	<h1 class="title">{{PageTitle}}</h1>
 	<div class="form-group">
 		<label for="urlInput">Image URL:</label>
 		<input type="text" id="urlInput" class="form-control" placeholder="Insert URL" ng-model="pin.url">
+		<div class="container-fluid">
+			<img src="{{pin.url}}" class="col-12">
+		</div>
 	</div>
 	<div class="form-group">
 		<label for="boardSelect">Pick a board:</label>
