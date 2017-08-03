@@ -4,16 +4,21 @@
 	<!-- add new board link -->
 	<div class="col-4" ng-show="!showDiv" ng-click="showDiv = !showDiv">
 		<div class="card card-block col-12">
-	  	<img class="card-img-top col-12" src="./images/BigPlus.png">
-    	<h4 class="card-title">Add Board</h4>
+			<a href="#!/board/all" class=" btn btn-primary">
+		  	<img class="card-img-top col-12" src="./images/BigPlus.png">
+	    	<h4 class="card-title">Add Board</h4>
+    	</a>
   	</div>
 	</div> <!--card-->
 
 	<!-- add new board form -->
 	<div class="col-4" ng-show="showDiv">
 		<div class="card card-block col-12 h-100">
-  		<input type="text" class="card-title" ng-model="newBoard.title">
-  		<button ng-click="addBoard(); showDiv = !showDiv">Add Board</button>
+			<div class="form-group">
+				<label for="boardTitleInput">New Board Name:</label>
+	  		<input id="boardTitleInput" type="text" class="card-title form-control" ng-model="newBoard.title">
+	  		<button class="btn btn-primary" ng-click="addBoard(); showDiv = !showDiv">Add Board</button>
+  		</div>
 		</div>
 	</div> <!--card-->
 
