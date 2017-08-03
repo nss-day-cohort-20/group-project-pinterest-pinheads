@@ -22,12 +22,13 @@ pinHead.controller('SingleBoardController', function ($scope, $window, $routePar
   });
 
   $scope.deleteBoard = function() {
-  	PinFactory.deleteBoardFromFB( $scope.board.id )
-  	.then( (data) => {
-  		$window.location.href="#!/board/all";
-  	});
+    if ($window.confirm("Are you sure you want to delete?")) {
+    	PinFactory.deleteBoardFromFB( $scope.board.id )
+    	.then( (data) => {
+    		$window.location.href="#!/board/all";
+    	});
+    }
   };
-
   $scope.updateBoard = function() {
   	console.log("scope dot board", $scope.board);
   	PinFactory.updateBoardOnFB($scope.board, $scope.board.id)
