@@ -17,7 +17,6 @@ pinHead.controller('SingleBoardController', function ($scope, $window, $routePar
 
   PinFactory.getSingleBoard( $routeParams.board_id )
   .then( (boardData) => {
-  	console.log("single board data", boardData);
   	$scope.board = boardData;
   });
 
@@ -30,19 +29,16 @@ pinHead.controller('SingleBoardController', function ($scope, $window, $routePar
     }
   };
   $scope.updateBoard = function() {
-  	console.log("scope dot board", $scope.board);
-  	PinFactory.updateBoardOnFB($scope.board, $scope.board.id)
-  	.then( (data) => {
-  		console.log("a board was updated");
-  	});
+  	PinFactory.updateBoardOnFB($scope.board, $scope.board.id);
+  	// .then( (data) => {
+  		// console.log("a board was updated");
+  	// });
   };
 
   $scope.deletePin = function(pinId) {
     if ($window.confirm("Are you sure you want to delete?")) {
-      console.log('deletePin', pinId);
       PinFactory.deletePinFromFB(pinId)
       .then( (response) => {
-        console.log('response', response);
         $window.location.reload(true);
       });
     }
