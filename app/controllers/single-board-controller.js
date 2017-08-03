@@ -24,6 +24,7 @@ pinHead.controller('SingleBoardController', function ($scope, $window, $routePar
     if ($window.confirm("Are you sure you want to delete?")) {
     	PinFactory.deleteBoardFromFB( $scope.board.id )
     	.then( (data) => {
+        // $('.modal').modal('hide');
     		$window.location.href="#!/board/all";
     	});
     }
@@ -35,13 +36,37 @@ pinHead.controller('SingleBoardController', function ($scope, $window, $routePar
   	// });
   };
 
-  $scope.deletePin = function(pinId) {
-    if ($window.confirm("Are you sure you want to delete?")) {
+  $scope.deletePinModal = function(pinId) {
+    $(`#pinModal${pinId}`).modal('hide');
+    $(`#pinModal${pinId}`).on( 'hidden.bs.modal', function() {
+      // $window.location.href=`#!/pin/edit/${pinId}`;
+    if ($window.confirm(`Are you sure you want to delete?`)) {
       PinFactory.deletePinFromFB(pinId)
       .then( (response) => {
         $window.location.reload(true);
       });
     }
+    });
+  };
+
+  $scope.deletePin = function(pinId) {
+    if ($window.confirm(`Are you sure you want to delete?`)) {
+      PinFactory.deletePinFromFB(pinId)
+      .then( (response) => {
+        $window.location.reload(true);
+      });
+    }
+    };
+
+  $scope.editPinModal = (pinId) => {
+    $(`#pinModal${pinId}`).modal('hide');
+    $(`#pinModal${pinId}`).on( 'hidden.bs.modal', function() {
+      $window.location.href=`#!/pin/edit/${pinId}`;
+    });
+  };
+
+  $scope.editPin = (pinId) => {
+      $window.location.href=`#!/pin/edit/${pinId}`;
   };
 
   $scope.addToSpecificBoard = () => {
