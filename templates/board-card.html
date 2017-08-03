@@ -1,0 +1,13 @@
+<!-- <div ng-controller="BoardCardController"> -->
+<div class="card col-12 h-90">
+    <a href="#!/board/{{board.id}}">
+        <div class="card-block">
+            <div class="card-columns">
+                <div class="card" ng-repeat="pin in allPins[1] | limitTo:pinLimit">
+                    <img class="card-img img-fluid" src="{{pin.url}}" alt="Card image">
+                </div>
+            </div>
+                <h4 class="card-title capitalize title">{{board.title}}</h4>
+        </div>
+    </a>
+</div>
