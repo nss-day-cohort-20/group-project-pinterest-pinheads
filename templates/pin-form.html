@@ -1,7 +1,7 @@
 <div ng-include="'templates/navbar.html'"></div>
 <div class="row justify-content-center">
 <form class="col-8 card">
-    <h1>{{PageTitle}}</h1>
+    <h1 class="title">{{PageTitle}}</h1>
     <div class="form-group">
         <label for="urlInput">Image URL:</label>
         <input type="text" id="urlInput" class="form-control" placeholder="Insert URL" ng-model="pin.url">
@@ -14,6 +14,6 @@
         <label for="titleInput">Pin Title:</label>
         <input type="text" id="titleInput" class="form-control" ng-model="pin.title">
     </div>
-    <button class="btn btn-primary" ng-click="savePin()">Pin It!</button>
+    <button class="btn btn-primary margin-btn" ng-click="savePin()">Pin It!</button>
 </form>
 </div>
