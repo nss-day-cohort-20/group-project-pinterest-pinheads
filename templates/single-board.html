@@ -1,67 +1,68 @@
 
 <div ng-include="'templates/navbar.html'"></div>
 
-<div class="row justify-content-around" >
-  <h2 class="col-6 capitalize title" ng-show="!showDiv">{{board.title}}</h2>
-  <div ng-show="showDiv">
-    <input type="text" ng-model="board.title">
-    <button class="btn btn-info" ng-click="updateBoard(); showDiv = !showDiv">Submit</button>
-  </div>
-  <div class="col margin-btn">
-    <button class="col-10 btn btn-primary" ng-click="showDiv = !showDiv">Change Name</button>
-  </div>
-  <div class="col margin-btn">
-    <button class="col-10 btn btn-danger" ng-click="deleteBoard()">Delete Board</button>
-  </div>
-</div>
-
-<div class="card-columns">
-
-    <div class="card card-block col-12 h-90" ng-click="addToSpecificBoard()">
-      <div class="btn btn-primary">
-        <img class="col-12" src="./images/BigPlus.png" alt="Large Plus Sign">
-        <h4 class="card-title">Add a Pin</h4>
-      </div>
+<div>
+  <div class="row justify-content-around" >
+    <h2 class="col-6 capitalize" ng-show="!showDiv">{{board.title}}</h2>
+    <div ng-show="showDiv">
+      <input type="text" ng-model="board.title">
+      <button class="btn btn-info" ng-click="updateBoard(); showDiv = !showDiv">Submit</button>
     </div>
-
-  <div ng-repeat="pin in pins">
-
-    <div class="card card-block col-12 h-100">
-      <!-- <a href="#!/pin/view/{{pin.id}}"> -->
-      <div data-toggle="modal" data-target='#pinModal{{pin.id}}'>
-        <img class="col-12" src="{{pin.url}}" alt="Pinned Image">
-        <h4 class="card-title capitalize title">{{pin.title}}</h4>
-      </div>
-      <!-- </a> -->
-      <div class="row justify-content-around">
-          <a ng-href="#!/pin/edit/{{pin.id}}" class="col-5 btn btn-primary">Edit</a>
-          <button class="btn btn-danger col-5" ng-click="deletePin(pin.id)">Delete</button>
-      </div>
+    <div class="col">
+      <button class="col-10 btn btn-primary" ng-click="showDiv = !showDiv">Change Name</button>
     </div>
+    <div class="col">
+      <button class="col-10 btn btn-danger" ng-click="deleteBoard()">Delete Board</button>
+    </div>
+  </div>
 
-    <div class="modal fade" id='pinModal{{pin.id}}' tabindex="-1" role="dialog" aria-labelledby="pinModal{{pin.id}}Label" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">{{pin.title}}</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="container-fluid">
-              <img src="{{pin.url}}" class="col-12">
+  <div class="card-columns">
+
+      <div class="card card-block col-12 h-90" ng-click="addToSpecificBoard()">
+        <div class="btn btn-primary">
+          <img class="col-12" src="./images/BigPlus.png" alt="Large Plus Sign">
+          <h4 class="card-title">Add a Pin</h4>
+        </div>
+      </div>
+
+    <div ng-repeat="pin in pins">
+
+      <div class="card card-block col-12 h-100">
+        <!-- <a href="#!/pin/view/{{pin.id}}"> -->
+        <div data-toggle="modal" data-target='#pinModal{{pin.id}}'>
+          <img class="col-12" src="{{pin.url}}" alt="Pinned Image">
+          <h4 class="card-title capitalize title">{{pin.title}}</h4>
+        </div>
+        <!-- </a> -->
+        <div class="row justify-content-around">
+            <a ng-href="#!/pin/edit/{{pin.id}}" class="col-5 btn btn-primary">Edit</a>
+            <button class="btn btn-danger col-5" ng-click="deletePin(pin.id)">Delete</button>
+        </div>
+      </div>
+
+      <div class="modal fade" id='pinModal{{pin.id}}' tabindex="-1" role="dialog" aria-labelledby="pinModal{{pin.id}}Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">{{pin.title}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-primary edit-btn" ng-click="editPinModal(pin.id)">Edit</button>
-            <button class="btn btn-danger delete-btn right" ng-click="deletePinModal(pin.id)">Delete</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <div class="modal-body">
+              <div class="container-fluid">
+                <img src="{{pin.url}}" class="col-12">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary edit-btn" ng-click="editPinModal(pin.id)">Edit</button>
+              <button class="btn btn-danger delete-btn right" ng-click="deletePinModal(pin.id)">Delete</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
-
   </div>
-
 </div>

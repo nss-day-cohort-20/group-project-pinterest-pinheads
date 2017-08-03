@@ -17,18 +17,25 @@ body {
   background-color: $darkaccent;
   height: 100vh;
   overflow: scroll;
+  div:nth-child(2) {
+    margin-top: 15px;
+  }
 }
 
 nav {
   background-color: $brightaccent;
+  margin-bottom: 20px;
   a {
   color: $blackish;
   }
+  // + div {
+  //   margin-top: 20px;
+  // }
 }
 
 .card {
   background-color: $whiteish;
-  margin: 20px 0;
+  // margin: 20px 0;
 }
 
 .isHidden {
