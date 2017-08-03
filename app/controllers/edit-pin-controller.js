@@ -21,10 +21,8 @@ pinHead.controller('EditPinController', function ($scope, $window, $routeParams,
 
 
 	$scope.savePin = () => {
-		console.log("save edited pin called", $scope.pin, pinId);
 		PinFactory.updatePinOnFB($scope.pin, pinId)
 		.then( (data) => {
-			console.log("editedpindata", data);
 			$window.location.href=`#!/board/${$scope.pin.board_id}`;
 		});
 	};
