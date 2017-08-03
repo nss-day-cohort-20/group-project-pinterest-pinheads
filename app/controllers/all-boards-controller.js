@@ -1,9 +1,9 @@
 'use strict';
 
-pinHead.controller('AllBoardsController', function ($scope, $window, UserFactory, PinFactory) {
+pinHead.controller('AllBoardsController', function ($scope, $window, UserFactory, PinFactory, $q) {
 
 	let currentUser = null;
-
+	$scope.pinLimit = 9;
 	$scope.newBoard = {
 		title: "",
 	};
@@ -14,31 +14,35 @@ pinHead.controller('AllBoardsController', function ($scope, $window, UserFactory
 		goGetBoards();
 	});
 
+function goGetBoards() {
+	PinFactory.getBoards(currentUser)
+	.then( (boards) => {
+		let boardsArr = [];
+		let boardData = boards;
 
-	function goGetBoards() {
-		PinFactory.getBoards(currentUser)
-		.then( (boards) => {
-			let boardsArr = [];
-			let boardData = boards;
-			Object.keys(boardData).forEach( (key) => {
-				boardData[key].id = key;
-				boardsArr.push(boardData[key]);
+		console.log("boarddata?", boards);
+		Object.keys(boardData).forEach( (key) => {
+			boardData[key].id = key;
+			boardsArr.push(boardData[key]);
+		});
+		// console.log("boards Array", boardsArr);
+		boardsArr.forEach((board)=>{
+			PinFactory.getPins(board.id)
+			.then((values)=>{
+				board.pins = values;
 			});
-			$scope.boards = boardsArr;
-		})
-		.catch( (err) => {
-			console.log("error", err);
-		});
-	}
+	});
+		$scope.boards = boardsArr;
+		console.log("$scope.boards", $scope.boards);
+		});		
+}
 
-	$scope.addBoard = () => {
-		$scope.newBoard.uid = currentUser;
-		PinFactory.postNewBoard($scope.newBoard)
-		.then( (response) => {
-			goGetBoards();
-			$scope.newBoard.title = "";
-			// $window.location.href = "#!/board/all";
-		});
-	};
-
+$scope.addBoard = () => {
+	$scope.newBoard.uid = currentUser;
+	PinFactory.postNewBoard($scope.newBoard)
+	.then( (response) => {
+		goGetBoards();
+		$scope.newBoard.title = "";
+	});
+};
 });
