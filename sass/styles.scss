@@ -17,10 +17,14 @@ body {
   background-color: $darkaccent;
   height: 100vh;
   overflow: scroll;
+  div:nth-child(2) {
+    margin-top: 15px;
+  }
 }
 
 nav {
   background-color: $brightaccent;
+  margin-bottom: 20px;
   a {
   color: $blackish;
   }

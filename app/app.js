@@ -1,7 +1,17 @@
 "use strict";
 
 let pinHead = angular.module("PinHead", ["ngRoute"])
-.constant('FirebaseUrl', 'https://pinheads-1f7c1.firebaseio.com/');
+.constant('FirebaseUrl', 'https://pinheads-1f7c1.firebaseio.com/')
+.directive('autofocus', ['$timeout', function($timeout) {
+  return {
+    restrict: 'A',
+    link : function($scope, $element) {
+      $timeout(function() {
+        $element[0].focus();
+      });
+    }
+  };
+}]);
 
 let isAuth = (UserFactory)  => {
     return new Promise( (resolve, reject) => {
@@ -54,4 +64,3 @@ pinHead.config(($routeProvider)=>{
     })
     .otherwise('/');
 });
-
