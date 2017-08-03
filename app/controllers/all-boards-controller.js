@@ -19,7 +19,6 @@ pinHead.controller('AllBoardsController', function ($scope, $window, UserFactory
 function goGetBoards() {
 	PinFactory.getBoards(currentUser)
 	.then( (boards) => {
-    // $scope.noBoard = ToggleLinkFactory.noBoard;
 	let boardsArr = [];
 	let boardData = boards;
 	Object.keys(boardData).forEach( (key) => {

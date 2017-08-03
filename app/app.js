@@ -3,6 +3,10 @@
 let pinHead = angular.module("PinHead", ["ngRoute"])
 .constant('FirebaseUrl', 'https://pinheads-1f7c1.firebaseio.com/');
 
+firebase.auth().onAuthStateChanged( (user) => {
+
+});
+
 let isAuth = (UserFactory) => {
     return new Promise( (resolve, reject) => {
         UserFactory.isAuthenticated()
@@ -12,6 +16,18 @@ let isAuth = (UserFactory) => {
             } else {
                 reject();
             }
+        });
+    });
+};
+
+let isBoard = (PinFactory, UserFactory) => {
+    return new Promise( (resolve,reject) => {
+        PinFactory.getBoards(UserFactory.getUser())
+        .then( (boards) => {
+            if(Object.keys(boards).length > 0)
+                resolve();
+            else
+                reject();
         });
     });
 };
@@ -35,7 +51,7 @@ pinHead.config(($routeProvider)=>{
     .when('/pin/add', {
         templateUrl: 'templates/pin-form.html',
         controller: 'AddPinController',
-        resolve: {isAuth}
+        resolve: {isAuth, isBoard}
     })
 
     .when('/pin/view/:pin_id', {
