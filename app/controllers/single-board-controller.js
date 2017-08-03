@@ -56,7 +56,7 @@ pinHead.controller('SingleBoardController', function ($scope, $window, $routePar
         $window.location.reload(true);
       });
     }
-    };
+  };
 
   $scope.editPinModal = (pinId) => {
     $(`#pinModal${pinId}`).modal('hide');
