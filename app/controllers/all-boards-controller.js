@@ -30,33 +30,11 @@ function goGetBoards() {
 			PinFactory.getPins(board.id)
 			.then((values)=>{
 				board.pins = values;
-			// let allPinsArr = [];
-			// console.log("values",values );
-			// 	let pinsArr = [];
-			// 	// console.log("board", board);
-			// 	for(let keys in values)
-			// 	{
-			// 		pinsArr.push(values[keys].url);
-			// 	}
-			// 		$scope.boards.allPins = pinsArr;
-			// 		console.log("pinsArr", $scope.boards);
-
 			});
-
-
-			// console.log("allPins", $scope.allPins);
 	});
 		$scope.boards = boardsArr;
 		console.log("$scope.boards", $scope.boards);
-	// .catch( (err) => {
-	// 	console.log("error", err);
-	// });
-			// console.log("promiseCall", promiseCall);
-			// promisesArr.push(promiseCall);
-			// console.log("promisesArr", promisesArr);
-		});
-		// $q.all(promisesArr)
-		
+		});		
 }
 
 $scope.addBoard = () => {
@@ -65,7 +43,6 @@ $scope.addBoard = () => {
 	.then( (response) => {
 		goGetBoards();
 		$scope.newBoard.title = "";
-		// $window.location.href = "#!/board/all";
 	});
 };
 });
