@@ -18,7 +18,7 @@ pinHead.controller('SinglePinController', function ($scope, $window, $routeParam
 				//go back to single board view
 				$window.location.href=`#!/board/${boardId}`;
 				$window.location.reload(true);
-				
+
 			});
 		}
 	};
@@ -26,7 +26,5 @@ pinHead.controller('SinglePinController', function ($scope, $window, $routeParam
 	$scope.editPin = () => {
 		$window.location.href=`#!/pin/edit/${pinId}`;
 	};
-
-
 
 });

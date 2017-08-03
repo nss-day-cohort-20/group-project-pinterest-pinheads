@@ -11,10 +11,8 @@ pinHead.controller('AllBoardsController', function ($scope, $window, UserFactory
 	UserFactory.isAuthenticated()
 	.then( (user) => {
 		currentUser = UserFactory.getUser();
-		console.log("current user???", currentUser);
 		goGetBoards();
 	});
-
 
 function goGetBoards() {
 	PinFactory.getBoards(currentUser)
@@ -52,7 +50,6 @@ function goGetBoards() {
 
 $scope.addBoard = () => {
 	$scope.newBoard.uid = currentUser;
-	console.log("newBoard", $scope.newBoard);
 	PinFactory.postNewBoard($scope.newBoard)
 	.then( (response) => {
 		goGetBoards();
@@ -60,5 +57,4 @@ $scope.addBoard = () => {
 		// $window.location.href = "#!/board/all";
 	});
 };
-
 });

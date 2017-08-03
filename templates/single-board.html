@@ -1,7 +1,7 @@
 
 <div ng-include="'templates/navbar.html'"></div>
 
-<div class="row justify-content-around">
+<div class="row justify-content-around" >
   <h2 class="col-6 capitalize title" ng-show="!showDiv">{{board.title}}</h2>
   <div ng-show="showDiv">
     <input type="text" ng-model="board.title">
@@ -15,28 +15,25 @@
   </div>
 </div>
 
-<div class="row align-items-center">
+<div class="card-columns">
 
-  <div class="col-4">
-    <div class="card card-block col-12 h-90">
-      <a href="#!/pin/add" class="btn btn-primary">
+
+    <div class="card card-block col-12 h-90" ng-click="addToSpecificBoard()">
+      <div class="btn btn-primary">
         <img class="col-12" src="./images/BigPlus.png" alt="Large Plus Sign">
         <h4 class="card-title">Add a Pin</h4>
-      </a>
-    </div>
-  </div>
-
-  <div ng-repeat="pin in pins" class="col-4">
-      <div class="card card-block col-12 h-90">
-        <a href="#!/pin/view/{{pin.id}}">
-          <img class="col-12" src="{{pin.url}}" alt="Pinned Image">
-          <h4 class="card-title capitalize title">{{pin.title}}</h4>
-        </a>
-        <div class="row justify-content-around">
-            <a ng-href="#!/pin/edit/{{pin.id}}" class="col-5 btn btn-primary">Edit</a>
-            <button class="btn btn-danger col-5" ng-click="deletePin(pin.id)">Delete</button>
-        </div>
       </div>
+    </div>
+
+  <div ng-repeat="pin in pins" class="card card-block col-12 h-100">
+    <a href="#!/pin/view/{{pin.id}}">
+      <img class="col-12" src="{{pin.url}}" alt="Pinned Image">
+      <h4 class="card-title capitalize title">{{pin.title}}</h4>
+    </a>
+    <div class="row justify-content-around">
+        <a ng-href="#!/pin/edit/{{pin.id}}" class="col-5 btn btn-primary">Edit</a>
+        <button class="btn btn-danger col-5" ng-click="deletePin(pin.id)">Delete</button>
+    </div>
   </div>
 
 </div>

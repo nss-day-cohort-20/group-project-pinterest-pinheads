@@ -10,12 +10,8 @@
 
 <body ng-app="PinHead">
 
-<!--   <div id="bodyWrapper" class="container">
- -->
-    <div id="pageWrapper" class="container" ng-view>
-    </div> <!-- pageWrapper -->
-
-<!--   </div> bodyWrapper -->
+  <div id="pageWrapper" class="container" ng-view>
+  </div>
 
   <!-- dependencies -->
   <script type="text/javascript" src="./lib/node_modules/jquery/dist/jquery.min.js"></script>
@@ -26,7 +22,7 @@
   <script type="text/javascript" src="./lib/node_modules/firebase/firebase.js"></script>
   <!-- app -->
   <script type="text/javascript" src="./app/app.js"></script>
-  <!-- factories -->
+  <!-- providers -->
   <script type="text/javascript" src="./app/values/fb-creds.js"></script>
   <script type="text/javascript" src="./app/factories/user-factory.js"></script>
   <script type="text/javascript" src="./app/factories/pin-factory.js"></script>
@@ -40,6 +36,5 @@
   <script type="text/javascript" src="./app/controllers/edit-pin-controller.js"></script>
 
 </body>
-
 
 </html>
