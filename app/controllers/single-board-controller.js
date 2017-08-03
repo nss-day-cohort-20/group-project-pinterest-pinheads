@@ -36,5 +36,16 @@ pinHead.controller('SingleBoardController', function ($scope, $window, $routePar
   	});
   };
 
+  $scope.deletePin = function(pinId) {
+    if ($window.confirm("Are you sure you want to delete?")) {
+      console.log('deletePin', pinId);
+      PinFactory.deletePinFromFB(pinId)
+      .then( (response) => {
+        console.log('response', response);
+        $window.location.reload(true);
+      });
+    }
+  };
 
 });
+
