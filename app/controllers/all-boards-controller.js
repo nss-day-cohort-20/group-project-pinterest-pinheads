@@ -3,7 +3,7 @@
 pinHead.controller('AllBoardsController', function ($scope, $window, UserFactory, PinFactory, $q) {
 
 	let currentUser = null;
-
+	$scope.pinLimit = 9;
 	$scope.newBoard = {
 		title: "",
 	};
@@ -26,7 +26,7 @@ function goGetBoards() {
 			boardData[key].id = key;
 			boardsArr.push(boardData[key]);
 		});
-		console.log("boards Array", boardsArr);
+		// console.log("boards Array", boardsArr);
 		$scope.boards = boardsArr;
 		boardsArr.forEach((board)=>{
 			let promiseCall = PinFactory.getPins(board.id);
@@ -36,7 +36,13 @@ function goGetBoards() {
 		});
 		$q.all(promisesArr)
 		.then((values)=>{
-			console.log("values", values);
+			$scope.allPins = values;
+			// .forEach((board)=>{
+			// console.log("number of pins", Object.keys(board).length);
+			// });
+
+
+			// console.log("allPins", $scope.allPins);
 		});
 	})
 	.catch( (err) => {

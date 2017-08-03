@@ -23,15 +23,7 @@
 	</div>
 
 	<!-- board display/links to single boards -->
-		<div class="col-4" ng-repeat="board in boards">
-			<div class="card col-12 h-90">
-				<a href="#!/board/{{board.id}}">
-		  		<div class="card-block">
-		        <img class="card-img-top col-12" src="" alt="Board Cover Image">
-		    		<h4 class="card-title capitalize title">{{board.title}}</h4>
-		  		</div>
-		  	</a>
-	  	</div>
+		<div class="col-4" ng-repeat="board in boards" ng-include="'templates/board-card.html'">
 		</div>
 
 </div> <!-- row -->
