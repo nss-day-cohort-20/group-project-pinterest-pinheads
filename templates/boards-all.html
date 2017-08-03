@@ -12,7 +12,7 @@
 	<div class="card card-block col-12 h-90" ng-show="showDiv">
 			<div class="form-group">
 				<label for="boardTitleInput">New Board Name:</label>
-	  		<input id="boardTitleInput" type="text" class="card-title form-control" ng-model="newBoard.title">
+	  		<input id="boardTitleInput" type="text" autofocus class="card-title form-control" ng-model="newBoard.title">
 	  		<button class="btn btn-primary" ng-click="addBoard(); showDiv = !showDiv">Add Board</button>
   		</div>
 	</div>
