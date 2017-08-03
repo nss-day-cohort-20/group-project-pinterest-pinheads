@@ -18,10 +18,11 @@
 <div class="row">
 
   <div class="col-4">
-    <div class="card card-block col-12">
-      <img class="col-12" src="./images/BigPlus.png" alt="Large Plus Sign">
-      <h4 class="card-title"></h4>
-      <a href="#!/pin/add" class="btn btn-primary">Add a pin</a>
+    <div class="card card-block col-12 h-100">
+      <a href="#!/pin/add" class="btn btn-primary">
+        <img class="col-12" src="./images/BigPlus.png" alt="Large Plus Sign">
+        <h4 class="card-title">Add a Pin</h4>
+      </a>
     </div>
   </div>
 
@@ -31,7 +32,10 @@
           <img class="col-12" src="{{pin.url}}" alt="Pinned Image">
           <h4 class="card-title">{{pin.title}}</h4>
         </a>
-        <a href="#!/pin/edit/{{pin.id}}" class="btn btn-primary">Edit Pin</a>
+        <div class="row justify-content-around">
+            <a ng-href="#!/pin/edit/{{pin.id}}" class="col-5 btn btn-primary">Edit</a>
+            <button class="btn btn-danger col-5" ng-click="deletePin(pin.id)">Delete</button>
+        </div>
       </div>
   </div>
 
