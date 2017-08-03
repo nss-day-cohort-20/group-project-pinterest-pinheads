@@ -19,33 +19,44 @@ function goGetBoards() {
 	.then( (boards) => {
 		let boardsArr = [];
 		let boardData = boards;
-		let promisesArr = [];
+
+		console.log("boarddata?", boards);
 		Object.keys(boardData).forEach( (key) => {
 			boardData[key].id = key;
 			boardsArr.push(boardData[key]);
 		});
 		// console.log("boards Array", boardsArr);
-		$scope.boards = boardsArr;
 		boardsArr.forEach((board)=>{
-			let promiseCall = PinFactory.getPins(board.id);
-			// console.log("promiseCall", promiseCall);
-			promisesArr.push(promiseCall);
-			// console.log("promisesArr", promisesArr);
-		});
-		$q.all(promisesArr)
-		.then((values)=>{
-			$scope.allPins = values;
-			// .forEach((board)=>{
-			// console.log("number of pins", Object.keys(board).length);
-			// });
+			PinFactory.getPins(board.id)
+			.then((values)=>{
+				board.pins = values;
+			// let allPinsArr = [];
+			// console.log("values",values );
+			// 	let pinsArr = [];
+			// 	// console.log("board", board);
+			// 	for(let keys in values)
+			// 	{
+			// 		pinsArr.push(values[keys].url);
+			// 	}
+			// 		$scope.boards.allPins = pinsArr;
+			// 		console.log("pinsArr", $scope.boards);
+
+			});
 
 
 			// console.log("allPins", $scope.allPins);
-		});
-	})
-	.catch( (err) => {
-		console.log("error", err);
 	});
+		$scope.boards = boardsArr;
+		console.log("$scope.boards", $scope.boards);
+	// .catch( (err) => {
+	// 	console.log("error", err);
+	// });
+			// console.log("promiseCall", promiseCall);
+			// promisesArr.push(promiseCall);
+			// console.log("promisesArr", promisesArr);
+		});
+		// $q.all(promisesArr)
+		
 }
 
 $scope.addBoard = () => {

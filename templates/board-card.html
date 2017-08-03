@@ -3,9 +3,10 @@
     <a href="#!/board/{{board.id}}">
         <div class="card-block">
             <div class="card-columns">
-                <div class="card" ng-repeat="pin in allPins[1] | limitTo:pinLimit">
-                    <img class="card-img img-fluid" src="{{pin.url}}" alt="Card image">
-                </div>
+                    <div class="card" ng-repeat="pin in board.pins">
+                        <img src={{pin.url}} class="card-img img-fluid" alt="Card image">
+                    </div>
+                
             </div>
                 <h4 class="card-title capitalize title">{{board.title}}</h4>
         </div>
